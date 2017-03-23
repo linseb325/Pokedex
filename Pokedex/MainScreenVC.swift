@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainScreenVC.Swift
 //  Pokedex
 //
 //  Created by Brennan Linse on 3/21/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainScreenVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
