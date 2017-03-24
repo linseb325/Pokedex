@@ -15,13 +15,17 @@ class PokeCell: UICollectionViewCell {
     
     var pokemon: Pokemon!
     
-    func configureCell(pokemon: Pokemon) {
+    func configureCell(_ pokemon: Pokemon) {
         self.pokemon = pokemon
         self.nameLabel.text = self.pokemon.name.capitalized
-        self.imageView.image = UIImage(named: "\(self.pokemon.idNumber)")
+        self.imageView.image = UIImage(named: "\(self.pokemon.idNumber!)")
     }
     
-    
+    // For styling the custom cell (rounded edges)
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.layer.cornerRadius = 5.0
+    }
     
     
     

@@ -11,8 +11,8 @@ import Foundation
 
 class Pokemon {
     
-    private var _name: String!
-    private var _idNumber: Int!
+    fileprivate var _name: String!
+    fileprivate var _idNumber: Int!
     
     var name: String! {
         return self._name
