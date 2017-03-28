@@ -8,6 +8,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="pokemon.ttf">
+            <string>PokemonSolidNormal</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Main ScreenVC-->
         <scene sceneID="tne-QT-ifu">
@@ -23,12 +28,37 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iyl-U5-mdg">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pokédex" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QBm-Ve-egG">
+                                        <rect key="frame" x="50" y="20" width="275" height="40"/>
+                                        <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="25"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KRx-eN-GOD">
+                                        <rect key="frame" x="342" y="32" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="25" id="kdt-Bt-9lC"/>
+                                            <constraint firstAttribute="height" constant="25" id="s7q-nD-IVu"/>
+                                        </constraints>
+                                        <state key="normal" image="music"/>
+                                        <connections>
+                                            <action selector="musicButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5yf-ug-BDb"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="QBm-Ve-egG" firstAttribute="top" secondItem="iyl-U5-mdg" secondAttribute="top" constant="20" id="1Zm-Kj-da6"/>
+                                    <constraint firstItem="QBm-Ve-egG" firstAttribute="leading" secondItem="iyl-U5-mdg" secondAttribute="leading" constant="50" id="SvS-Tr-yzb"/>
+                                    <constraint firstAttribute="trailing" secondItem="QBm-Ve-egG" secondAttribute="trailing" constant="50" id="ce8-4L-h4y"/>
+                                    <constraint firstAttribute="bottom" secondItem="KRx-eN-GOD" secondAttribute="bottom" constant="8" id="kQg-vb-7Ig"/>
+                                    <constraint firstAttribute="trailing" secondItem="KRx-eN-GOD" secondAttribute="trailing" constant="8" id="poY-v7-SDx"/>
+                                    <constraint firstAttribute="bottom" secondItem="QBm-Ve-egG" secondAttribute="bottom" constant="5" id="vyv-UP-vPS"/>
                                     <constraint firstAttribute="height" constant="65" id="zpa-rJ-Y4z"/>
                                 </constraints>
                             </view>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="UDp-n0-GgM">
+                            <searchBar contentMode="redraw" placeholder="Search for a Pokémon..." translatesAutoresizingMaskIntoConstraints="NO" id="UDp-n0-GgM">
                                 <rect key="frame" x="0.0" y="65" width="375" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="wIr-M5-Fcl"/>
@@ -106,15 +136,17 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="E99-bk-rDX" id="DTG-l1-cPV"/>
+                        <outlet property="searchBar" destination="UDp-n0-GgM" id="M6P-L4-jmH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="24.375" y="36.971830985915496"/>
+            <point key="canvasLocation" x="23.199999999999999" y="36.431784107946029"/>
         </scene>
     </scenes>
     <resources>
         <image name="258" width="96" height="96"/>
         <image name="background" width="1920" height="1200"/>
+        <image name="music" width="100" height="100"/>
     </resources>
 </document>
