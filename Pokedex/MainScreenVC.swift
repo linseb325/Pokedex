@@ -55,6 +55,7 @@ class MainScreenVC: UIViewController, UICollectionViewDelegate, UICollectionView
         }
     }
     
+    // Plays audio.
     func initAudio() {
         let path = Bundle.main.path(forResource: "music", ofType: "mp3")!
         
@@ -68,6 +69,7 @@ class MainScreenVC: UIViewController, UICollectionViewDelegate, UICollectionView
         }
     }
     
+    // Stops or starts the music.
     @IBAction func musicButtonPressed(_ sender: UIButton) {
         
         if self.musicPlayer.isPlaying {
@@ -102,7 +104,15 @@ class MainScreenVC: UIViewController, UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // What happens when we select a cell
+        var selectedPoke: Pokemon!
         
+        if self.inSearchMode {
+            selectedPoke = self.filteredPokemon[indexPath.row]
+        } else {
+            selectedPoke = self.pokemonArray[indexPath.row]
+        }
+        
+        performSegue(withIdentifier: "PokemonDetailVC", sender: selectedPoke)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -137,6 +147,16 @@ class MainScreenVC: UIViewController, UICollectionViewDelegate, UICollectionView
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.view.endEditing(true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "PokemonDetailVC" {
+            if let detailsVC = segue.destination as? PokemonDetailVC {
+                if let poke = sender as? Pokemon {
+                    detailsVC.pokemon = poke
+                }
+            }
+        }
     }
     
     
