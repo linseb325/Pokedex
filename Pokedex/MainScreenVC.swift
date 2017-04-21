@@ -39,9 +39,6 @@ class MainScreenVC: UIViewController, UICollectionViewDelegate, UICollectionView
         do {
             let csv = try CSV(contentsOfURL: path!)
             let rows = csv.rows
-            for row in rows {
-                print(row)
-            }
             
             for row in rows {
                 let pokeID = Int(row["id"]!)!
