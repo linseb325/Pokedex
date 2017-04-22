@@ -25,7 +25,7 @@ class PokemonDetailVC: UIViewController {
     @IBOutlet weak var nextEvolutionImage: UIImageView!
     @IBOutlet weak var nextEvolutionLabel: UILabel!
     
-    
+    @IBOutlet weak var arrowImage: UIImageView!
     
 
     
@@ -51,6 +51,22 @@ class PokemonDetailVC: UIViewController {
         attackLabel.text = pokemon.attack
         defenseLabel.text = pokemon.defense
         typeLabel.text = pokemon.type
+        descriptionLabel.text = pokemon.description
+        
+        if pokemon.nextEvolutionID == "" {
+            nextEvolutionLabel.text = "No Evolutions"
+            nextEvolutionImage.isHidden = true
+            arrowImage.isHidden = true
+        } else {
+            arrowImage.image = UIImage(named: "arrow")
+            nextEvolutionImage.image = UIImage(named: pokemon.nextEvolutionID)
+            nextEvolutionLabel.text = "Next Evolution: \(pokemon.nextEvolutionName.capitalized)"
+            
+            // For the case where the Pokemon evolves, but not by level:
+            if pokemon.nextEvolutionLevel != "" {
+                nextEvolutionLabel.text?.append(" - LVL \(pokemon.nextEvolutionLevel)")
+            }
+        }
         
         
         
